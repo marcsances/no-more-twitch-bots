@@ -13,7 +13,7 @@ CLIENT_ID = 'GET ONE IN https://dev.twitch.tv/'
 TOKEN = 'GET ONE IN https://twitchapps.com/tmi/'
 DEBUG = False
 WHITELIST = ['streamelemenmts', 'nightbot', 'moobot']
-
+THRESHOLD = 300
 
 class TwitchBotBan(SingleServerIRCBot):
     def __init__(self):
@@ -38,18 +38,19 @@ class TwitchBotBan(SingleServerIRCBot):
         c.join(self.channel)
         print("Chatbot started, fetching mod users")
         r = requests.get('https://api.twitchinsights.net/v1/bots/all').json()
-        for entry in r['bots']:
-            self.ban(entry[0])
+        lst = list(filter(lambda x: x[1] > THRESHOLD, r['bots']))
+        for idx, entry in enumerate(lst):
+            self.ban(entry[0], idx, len(lst))
         print("Process complete")
         sys.exit(0)
 
-    def ban(self, username):
+    def ban(self, username, idx, len):
         if username in WHITELIST:
             print("Refused to ban " + username)
             return
         with self.lock:
             self.connection.privmsg(self.channel, "/ban " + username)
-        print("Banned " + username)
+        print("Banned {} ({}/{})".format(username, str(idx), len))
         time.sleep(0.5)
 
     def unban(self, username):

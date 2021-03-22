@@ -22,14 +22,15 @@ privileges in your channel. No need to be yourself.
 
 Go to ``main.py`` and edit the variables in uppercase:
 
-| Variable        | Value                                                      |
-|-----------------|------------------------------------------------------------|
-| USERNAME        | The username for which you generated a token               |
-| CHANNEL         | The channel where the bans should be applied               |
-| CLIENT_ID       | The chatbot app client ID generated on Twitch Devleopers   |
-| TOKEN           | The bot token you created on the second link               |
-| WHITELIST       | List of bots that should not be banned (moobot, etc)       |
-| DEBUG           | Set to true if you want to see what is going on through IRC|
+| Variable        | Value                                                            |
+|-----------------|------------------------------------------------------------------|
+| USERNAME        | The username for which you generated a token                     |
+| CHANNEL         | The channel where the bans should be applied                     |
+| CLIENT_ID       | The chatbot app client ID generated on Twitch Devleopers         |
+| TOKEN           | The bot token you created on the second link                     |
+| WHITELIST       | List of bots that should not be banned (moobot, etc)             |
+| DEBUG           | Set to true if you want to see what is going on through IRC      |
+| THRESHOLD       | Minimum amount of channels where the bot is present to be banned |
 
 That's it, once configured, run with:
 
