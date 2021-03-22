@@ -42,4 +42,26 @@ and enjoy
 
 ## Rolling back
 
-You can rollback all the bans by changing line 42 from ``self.ban(entry[0])`` to ``self.ban(entry[0])``.
+You can rollback all the bans by changing line 42 from ``self.ban(entry[0])`` to ``self.unban(entry[0])``.
+
+## FAQ
+
+### OMG SO MANY USERS
+
+Yeah all bots are taken into account. It would actually take half a year to ban every single bot (threshold=0), that's
+why Threshold is a thing.
+
+### Stuck on initializing
+
+Try again, sometimes IRC just fails to initialize
+
+### (Insert important bot name) here got banned
+
+Add it to the whitelist so it's not banned anymore. Make sure that you add all your bots to the whitelist before 
+proceeding.
+
+Unban the bot in your channel and no worries.
+
+### License?
+
+Do whatever.
